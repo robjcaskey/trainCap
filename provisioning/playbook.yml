@@ -5,7 +5,7 @@
     - nodejs
   tasks:
     - name: Download WiringPi from repo
-      git: repo=git://github.com/WiringPi/WiringPi.git
+      git: repo=http://github.com/WiringPi/WiringPi.git
            dest=/usr/local/src/WiringPi
     - name: "Install dccpi from repo"
       pip: name=https://github.com/robjcaskey/dccpi/archive/master.zip
