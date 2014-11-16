@@ -21,6 +21,7 @@ logFile="true"
 
 command="node"
 nodeApp="/usr/local/nodejs/node-`node -v`/lib/node_modules/trainCap-pinstripe/trainCap-pinstripe.js"
+workingDir="/usr/local/nodejs/node-`node -v`/lib/node_modules/trainCap-pinstripe"
 foreverApp="/usr/local/nodejs/node-`node -v`/lib/node_modules/forever/bin/forever"
 
 start() {
@@ -33,7 +34,7 @@ start() {
    PATH=/usr/local/bin:$PATH
 	export NODE_ENV=production
    #PORT=80
-   $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" $nodeApp
+   $foreverApp start --pidFile $pidFile -l $logFile -a -d -c "$command" --workingDir=$workingDir $nodeApp
    RETVAL=$?
 }
 
