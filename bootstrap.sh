@@ -12,3 +12,5 @@ git clone https://github.com/ansible/ansible.git
 cd ansible
 make install
 mkdir /etc/ansible
+cd
+wget -O - https://raw.githubusercontent.com/robjcaskey/trainCap/master/provisioning/requirements.txt | bash
