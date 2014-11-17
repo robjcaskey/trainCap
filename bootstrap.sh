@@ -12,5 +12,9 @@ git clone https://github.com/ansible/ansible.git
 cd ansible
 make install
 mkdir /etc/ansible
+echo [trainGui] >> /etc/ansible/hosts
+echo localhost\tansible_connection=local >> /etc/ansible/hosts
 cd
-wget -O - https://raw.githubusercontent.com/robjcaskey/trainCap/master/provisioning/requirements.txt | bash
+git clone https://github.com/robjcaskey/trainCap.git
+ansible-galaxy install -r trainCap/provisioning/requirements.txt
+
