@@ -1,2 +1,2 @@
 Ansibles.build-essential
-ANXS.nodejs
+https://github.com/ANXS/nodejs,4bad6230e1d9ccfd81259000474c383e046dd73e
