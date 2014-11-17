@@ -1,6 +1,7 @@
 - hosts: trainGui
   vars:
-    - node_version: false
+    - NODE_VERSION: v0.10.26
+    - NODE_LOCAL_MODULES_PATH: "/usr/local/nodejs/node-{{ NODE_VERSION }}/lib/node_modules"
   roles:
     - nodejs
   tasks:
@@ -21,9 +22,10 @@
       npm: name="forever" global=yes
     - name: Install trainCap-pinstripe
       npm: name="robjcaskey/trainCap-pinstripe" global=yes
-    - name: "Check list of Node.js apps running"
-      raw: "/usr/local/nodejs/node-`node -v`/lib/node_modules/forever/bin/forever list"
-      register: forever_list
+    - name: "Update trainCaps bower dependencies"
+      command: "{{ NODE_LOCAL_MODULES_PATH }}/bower/bin/bower install --allow-root --config.interactive=false"
+      args:
+        chdir: "{{ NODE_LOCAL_MODULES_PATH }}/trainCap-pinstripe"
       changed_when: false
     - name: "copy trainCap-pinstripe init.d script"
       template: src=init.d/trainCap-pinstripe dest=/etc/init.d/trainCap-pinstripe mode=0751
