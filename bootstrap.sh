@@ -18,4 +18,4 @@ echo localhost	ansible_connection=local >> /etc/ansible/hosts
 cd
 git clone https://github.com/robjcaskey/trainCap.git
 ansible-galaxy install -r trainCap/provisioning/requirements.txt
-
+ansible-playbook trainCap/provisioning/playbook.yml
