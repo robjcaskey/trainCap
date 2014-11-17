@@ -14,7 +14,7 @@ git submodule update --init --recursive
 make install
 mkdir /etc/ansible
 echo [trainGui] >> /etc/ansible/hosts
-echo localhost\tansible_connection=local >> /etc/ansible/hosts
+echo localhost	ansible_connection=local >> /etc/ansible/hosts
 cd
 git clone https://github.com/robjcaskey/trainCap.git
 ansible-galaxy install -r trainCap/provisioning/requirements.txt
