@@ -1,3 +1,25 @@
 - hosts: trainGui
+  vars:
+    - node_version: false
   roles:
     - nodejs
+  tasks:
+    - name: Download WiringPi from repo
+      git: repo=git://github.com/WiringPi/WiringPi.git
+           dest=/usr/local/src/WiringPi
+    - name: "Install dccpi from repo"
+      pip: name=https://github.com/robjcaskey/dccpi/archive/master.zip
+    - name: Install "socket.io" node.js package globally
+      npm: name="socket.io" global=yes
+    - name: Install forever (to run Node.js apps) globally
+      npm: name="forever" global=yes
+    - name: Install trainCap-pinstripe
+      npm: name="robjcaskey/trainCap-pinstripe" global=yes
+    - name: "Check list of Node.js apps running"
+      raw: "/usr/local/nodejs/node-`node -v`/lib/node_modules/forever/bin/forever list"
+      register: forever_list
+      changed_when: false
+    - name: "copy trainCap-pinstripe init.d script"
+      template: src=init.d/trainCap-pinstripe dest=/etc/init.d/trainCap-pinstripe mode=0751
+    - name: "Restart trainCap-pinstripe"
+      service: name=trainCap-pinstripe state=restarted
