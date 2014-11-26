@@ -1,12 +1,12 @@
 #!/bin/bash
 ### BEGIN INIT INFO
-# Provides:          /etc/init.d/trainCap-pinstripe
+# Provides:          trainCap-pinstripe
 # Required-Start:    $remote_fs $syslog
 # Required-Stop:     $remote_fs $syslog
 # Default-Start:     2 3 4 5
 # Default-Stop:      0 1 6
-# Short-Description: forever running /etc/init.d/trainCap-pinstripe
-# Description:       /etc/init.d/trainCap-pinstripe
+# Short-Description: forever running trainCap-pinstripe
+# Description:       trainCap-pinstripe
 ### END INIT INFO
 #
 # initd a node app
