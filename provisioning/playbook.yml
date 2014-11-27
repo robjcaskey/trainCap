@@ -11,6 +11,8 @@
       pip: name=https://github.com/robjcaskey/dccpi/archive/master.zip
     - name: Install "socket.io" node.js package globally
       npm: name="socket.io" global=yes
+    - name: Install "bower" node.js package globally
+      npm: name="bower" global=yes
     - name: Install forever (to run Node.js apps) globally
       npm: name="forever" global=yes
     - name: Install trainCap-pinstripe
