@@ -33,11 +33,6 @@
       service: name=trainCap-pinstripe state=restarted
     - name: Install trainCap-brim
       npm: name="robjcaskey/trainCap-brim" global=yes
-    - name: "Update trainCap-brims bower dependencies"
-      command: "{{ NODE_LOCAL_MODULES_PATH }}/bower/bin/bower install --allow-root --config.interactive=false"
-      args:
-        chdir: "{{ NODE_LOCAL_MODULES_PATH }}/trainCap-brim"
-      changed_when: false
     - name: "copy trainCap-brim init.d script"
       template: src=init.d/trainCap-brim dest=/etc/init.d/trainCap-brim mode=0751
     - name: "Restart trainCap-brim"
