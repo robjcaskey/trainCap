@@ -6,12 +6,12 @@
     - nodejs
   tasks:
     - name: Download WiringPi from repo
-      git: repo=http://github.com/WiringPi/WiringPi.git
-           dest=/usr/local/src/WiringPi
+      git: repo=http://github.com/robjcaskey/trainCap-wiringpi.git
+           dest=/usr/local/src/trainCap-wiringPi
     - name: Install WiringPi from local src
-      command: /usr/local/src/WiringPi/build
+      command: /usr/local/src/trainCap-wiringPi/build install
       args:
-        chdir: /usr/local/src/WiringPi
+        chdir: /usr/local/src/trainCap-wiringPi
     - name: "Install dccpi from repo"
       pip: name=https://github.com/robjcaskey/dccpi/archive/master.zip
     - name: Install "socket.io" node.js package globally
