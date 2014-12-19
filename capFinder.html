@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	var host_list = [];
+	var results = {}
+	setInterval(function() {
+		if(host_list.length) {
+			var randomIndex = Math.floor(Math.random() * host_list.length);
+			var host = host_list[randomIndex];
+			console.log(host.url);
+			$.ajax({
+				url:host.url,
+				dataType:'jsonp',
+				success:function(jsonp) {
+					if(typeof(jsonp.serviceName) !== 'undefined') {
+						if(typeof(results[host.url]) == 'undefined') {
+							var div = $("<div>")
+							results[host.url] = {
+								div:div
+							}
+							var a = $("<a>")
+								.attr('href', host.loginUrl)
+							$(a).append(host.loginUrl);
+							$(div).append(a);
+							$("#foundHosts").append(div)
+						}
+						else {
+							var div = results[host.url].div;
+						}
+					}
+				}
+			})
+		}
+	}, 200);
+	function setScanHosts(prefix) {
+		host_list = []
+		for(var i=1;i<254;i++) {
+			var url="http://"+prefix+"."+i.toString()+":8080/jsonAbout";
+			var loginUrl="http://"+prefix+"."+i.toString()+":8080";
+			host_list.push({
+				url:url,
+				loginUrl:loginUrl,
+				prefix:prefix
+			});
+		}
+		$("#searchStatus").text("Now continuously searching for hosts in "+prefix+".1-254.");
+	}
+	$("#doScanBtn").click(function() {
+		setScanHosts($("#prefix").val())
+	});
+});
+</script>
+<body>
+
+<h1>capFinder</h1>
+<p>Let's find your trainCap! This page continuously scans looking for new hosts that come online, may take a minute or two for hosts to appear. Not showing up in the default prefix? Try changing it to match the first three numbers of your <a href="http://windows.microsoft.com/en-us/windows/find-computers-ip-address#1TC=windows-7">internal ip address</a> (ie. if your ip is 12.22.30.42 use 12.22.03 as the search prefix.</p>
+
+<p>Common prefixes for home-networks include:
+	<ul>
+		<li>192.168.1</li>
+		<li>192.168.100</li>
+		<li>192.168.0</li>
+	</ul>
+</p>
+Look for trainCap hosts in
+<input type="text" value="192.168.1" id="prefix">.0-254
+<input type="submit" id="doScanBtn" value="Scan">
+<p id="searchStatus">Click Scan to get started.</p>
+<div id="foundHosts">
+</div>
+</body>
+</html>
