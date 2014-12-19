@@ -58,7 +58,7 @@ Plug in the micro-USB power adapter and plug that adapter into the wall.
 
 Plug the network cable in to your router. Make sure the USB wireless adapter is not plugged into the Pi at this point.
 
-Visit the [capFinder](http://username.github.io/trainCap/capFinder.html), plug the pi into a monitor, or use another network scanner on port 8080 to find the ip address of the Raspberry Pi.
+Visit the [capFinder](http://robjcaskey.github.io/trainCap/capFinder.html), plug the pi into a monitor, or use another network scanner on port 8080 to find the ip address of the Raspberry Pi.
 
 Unplug the micro-USB power adapter from the wall.
 
