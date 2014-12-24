@@ -29,11 +29,15 @@
       changed_when: false
     - name: "copy trainCap-pinstripe init.d script"
       template: src=init.d/trainCap-pinstripe dest=/etc/init.d/trainCap-pinstripe mode=0751
+    - name: "make sure traincap-pinstripe runs on boot"
+      command: "sudo update-rc.d trainCap-pinstripe defaults"
     - name: "Restart trainCap-pinstripe"
       service: name=trainCap-pinstripe state=restarted
     - name: Install trainCap-brim
       npm: name="robjcaskey/trainCap-brim" global=yes
     - name: "copy trainCap-brim init.d script"
       template: src=init.d/trainCap-brim dest=/etc/init.d/trainCap-brim mode=0751
+    - name: "make sure traincap-brim runs on boot"
+      command: "sudo update-rc.d trainCap-brim defaults"
     - name: "Restart trainCap-brim"
       service: name=trainCap-brim state=restarted
