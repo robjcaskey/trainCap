@@ -37,12 +37,19 @@ Qty | Description      | Unit Cost
 ------------- |-------------| -----:
 10  | m2 nut | 23c  
 10  | m2 screw, 12mm long | 23c
-8   | nylon washer, .312x.140x.125, 13c
+8   | nylon washer, .312x.140x.125| 13c
 2   | m4 screw, 25mm long | 33c
 2   | m4 nut | 27c
 2   | m4 washer | 9c
 
 # The Build
+## What We Are Building
+This is what we are building.
+
+![Completed Build](build_images/completed_build.jpg "Completed Build")
+
+There is also a DC power-brick (not pictured) that lives outside the box, comes in through a pair of holes, and plugs into the barrier strip. The micro-SD card in the Raspberry Pi is on the back and can't be seen, but it's there!
+
 ## Prepare the Raspberry Pi
 ### Prepare the micro-SD Card
 Download [NOT DONE YET - coming soon](http://downloads.raspberrypi.org/raspbian_latest) and follow the instructions for either [Windows](http://www.raspberrypi.org/documentation/installation/installing-images/windows.md), [Mac](http://www.raspberrypi.org/documentation/installation/installing-images/mac.md), or [Linux](http://www.raspberrypi.org/documentation/installation/installing-images/linux.md) for writing the image to the micro-SD card. The card must be at least 16 gigabytes in size. I found it much easier to get the card to phyiscally fit properly into my adapter when I put the micro-SD card in the SD card adapter and plugged it into the SD slot insetad of plugging the micro-SD card directly into the micro-SD slot.
@@ -195,3 +202,6 @@ Locate the long red jumper attached to IN+ from the voltage step-down board into
 Take the loose end of the black jumper from the motor control board, the white jumper from the raspberry pi, and the black IN- from the voltage step-down board, cut the end off all three wires and strip them about a quarter of an inch. Twist all three together and screw them into the fourth barrier strip terminal from the right.
 
 ![Ground Barrier Strip Connection](build_images/barrier_completed.jpg "Ground Barrier Strip Connection")
+
+# To-Da!
+![Completed Build](build_images/completed_build.jpg "Completed Build")
