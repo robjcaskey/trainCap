@@ -205,3 +205,13 @@ Take the loose end of the black jumper from the motor control board, the white j
 
 # To-Da!
 ![Completed Build](build_images/completed_build.jpg "Completed Build")
+
+# Software Setup
+
+* Program your locomotive to address #3 (done seperately, hopefully will add this programming capability soon)
+* Plug device into ethernet and power
+* Use [capFinder](http://robjcaskey.github.io/trainCap/capFinder.html "capFinder") to search for trainCap devices on your network and then click the link when it is located
+* Once in the page, use the Settings button to setup wireless networking including access point name (essid) and password.
+* Power off, unplug ethernet back on
+* Use capFinder again to find the new address and write it down, then open it up on your smart phone/tablet
+* Have fun!
